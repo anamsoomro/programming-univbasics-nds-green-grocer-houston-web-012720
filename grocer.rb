@@ -17,7 +17,7 @@ end
 
 
 def consolidate_cart(cart)
-<<<<<<< HEAD
+
   organized_cart = []
   i = 0 
   while i < cart.length do 
@@ -26,7 +26,7 @@ def consolidate_cart(cart)
       cart_item[:count] += 1
     else 
       cart_item = {
-=======
+
   # Consult README for inputs and outputs
   #
   # REMEMBER: This returns a new Array that represents the cart. Don't merely
@@ -39,24 +39,24 @@ def consolidate_cart(cart)
       new_cart_item[:count] += 1
     else 
       new_cart_item = {
->>>>>>> c1445c3c4aae9a379de2508f4e273682906163dd
+
         :item => cart[i][:item],
         :price => cart[i][:price],
         :clearance => cart[i][:clearance],
         :count => 1}
-<<<<<<< HEAD
+
       organized_cart << cart_item
     end
     i += 1 
   end
   organized_cart
-=======
+
       new_cart << new_cart_item
     end
     i += 1 
   end
   new_cart
->>>>>>> c1445c3c4aae9a379de2508f4e273682906163dd
+
 end 
 
 
