@@ -48,9 +48,12 @@ def apply_coupons(cart, coupons)
     
     #if the coupon item exists in the cart and they have enough to use the coupon
     if cart_item && cart_item[:count] >= coupons[i][:num]
+      #if the couponed item already exists (numerous coupons) then + to the couponed amount, and - from retail amount
       if cart_item_with_coupon
         cart_item_with_coupon[:count] += coupons[i][:num]
         cart_item[:count] -= coupons[i][:num]
+      
+      #else if the couponed item doesnt exist yet, create it, and - the couponed amount from the retail amount
       else
         cart_item_with_coupon = {
           :item => "#{coupons[i][:item]} W/COUPON",
@@ -64,7 +67,6 @@ def apply_coupons(cart, coupons)
     i += 1  
   end
   cart
-  #binding.pry
 end
 
 def apply_clearance(cart)
