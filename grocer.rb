@@ -40,13 +40,13 @@ end
 def apply_coupons(cart, coupons)
   i = 0
   while i < coupons.length do 
-    #look for item in the coupon in the cart
+    #look for item in the coupon in the cart, else will be nil 
     cart_item = find_item_by_name_in_collection(coupons[i][:item], cart)
 
-    #lookup the couponed item in the cart to see if it exists, else it will be nil
+    #lookup the couponed item in the cart to see if it exists already, else it will be nil
     cart_item_with_coupon = find_item_by_name_in_collection(couponed_item_name, cart)
     
-    
+    #if the coupon item exists in the cart and they have enough to use the coupon
     if cart_item && cart_item[:count] >= coupons[i][:num]
       if cart_item_with_coupon
         cart_item_with_coupon[:count] += coupons[i][:num]
